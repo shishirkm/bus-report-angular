@@ -1,0 +1,49 @@
+
+<div class="content-wrapper container">
+    <h1 class="heading">Bus Reports</h1>
+    <div class="bus-reports-container" ng-repeat="(key, bus) in busReports">
+        <h4 class="bus-org-heading">
+            {{bus.organisation}} - {{bus.date}}
+            <div ng-click="toggle($event)" class="icon icon-down" 
+                 data-toggle="collapse" data-target="#bus-org-{{key}}">
+            </div>
+        </h4>
+        <div id="bus-org-{{key}}" class="row collapse">
+            <table  class="table">
+                <thead>
+                    <tr>
+                        <td class="col-lg-4">Bus Id</td>
+                        <td class="col-lg-4">Route</td>
+                        <td class="col-lg-4">Status</td>
+                    </tr>
+                </th>
+                <tbody>
+                    <tr ng-repeat="busData in bus.busData">
+                        <td class="col-lg-4">{{busData.busId}}</td>
+                        <td class="col-lg-4" ng-if="busData.routeVariant !== 'UNKNOWN'">
+                            <strong>{{busData.routeVariant.substr(0, 3)}}</strong>
+                            <span>{{busData.routeVariant.substr(4, busData.routeVariant.length)}}</span>
+                        </td>
+                        <td class="col-lg-4" ng-if="busData.routeVariant === 'UNKNOWN'">
+                            Unknown
+                        </td>
+                        <td ng-class="statusClass(busData.deviationFromTimetable)" class="col-lg-4">{{status(busData.deviationFromTimetable)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form id="bus-org-notes-form-{{key}}" name="notesForm">
+                <div class="row">
+                    <textarea id="bus-org-notes-field-{{key}}" rows="5" 
+                            class="col-lg-6 col-md-6 col-sm-6 col-xs-12" ng-model="note">
+                    </textarea>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary mt-20 col-lg-2 col-md-2 col-sm-2 col-xs-12" type="submit">
+                        Save Notes
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

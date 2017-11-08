@@ -1,0 +1,6 @@
+Assumtions made:
+
+On Time: value less than 300
+Early: value less than 0
+Late: value more than 300
+Unknown: value is null

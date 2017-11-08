@@ -1,0 +1,27 @@
+{
+    "node": true,
+    "esnext": true,
+    "bitwise": true,
+    "camelcase": false,
+    "curly": false,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "regexp": true,
+    "undef": true,
+    "unused": false,
+    "strict": true,
+    "trailing": false,
+    "smarttabs": true,
+    "white": false,
+    "jquery": true,
+    "validthis": true,
+    "globals": {
+      "rm": true,
+      "window": true,
+      "document": true
+    }
+  }
